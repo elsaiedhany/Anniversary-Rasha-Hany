@@ -1,24 +1,18 @@
 /* ==========================================================================
-   RASHA ❤️ HANY - INTIMATE ANNIVERSARY GIFT
-   Design: Elegant Black & Gold, Mobile-First, Smooth One-Page Experience
+   SIMPLE ROMANTIC GIFT - RASHA & HANY
+   Mobile-First, Pure & Minimalist Design
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;600;700&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap');
 
 :root {
-    --bg-dark: #070708;
-    --bg-card: rgba(18, 18, 22, 0.8);
+    --bg-dark: #08080A;
     --gold-primary: #D4AF37;
     --gold-light: #F5E6AD;
-    --gold-bright: #FFD700;
-    --gold-gradient: linear-gradient(135deg, #FFF0A5 0%, #D4AF37 50%, #997A15 100%);
-    --gold-glow: 0 0 25px rgba(212, 175, 55, 0.35);
-    --text-main: #FFFFFF;
-    --text-muted: #C0C0C8;
-    --border-glass: rgba(212, 175, 55, 0.25);
+    --text-white: #FFFFFF;
+    --text-muted: #D0D0D5;
     --font-heading: 'Amiri', serif;
     --font-body: 'Alexandria', sans-serif;
-    --transition: all 0.4s ease;
 }
 
 *, *::before, *::after {
@@ -33,20 +27,20 @@ html {
     scroll-behavior: smooth;
     font-size: 16px;
     background-color: var(--bg-dark);
-    color: var(--text-main);
+    color: var(--text-white);
     font-family: var(--font-body);
 }
 
 body {
-    background-color: var(--bg-dark);
-    color: var(--text-main);
+    background: #08080A;
+    color: var(--text-white);
     line-height: 1.8;
     min-height: 100vh;
     overflow-x: hidden;
 }
 
-/* Background Canvas */
-#particles-canvas, #fireworks-canvas {
+/* Floating Canvas */
+#particles-canvas {
     position: fixed;
     top: 0;
     left: 0;
@@ -56,125 +50,91 @@ body {
     z-index: 1;
 }
 
-#fireworks-canvas {
-    z-index: 9999;
-}
-
-/* Glass Card Helper */
-.glass-card {
-    background: var(--bg-card);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid var(--border-glass);
-    border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
-}
-
-/* Typography Helpers */
-.text-gold {
-    background: linear-gradient(135deg, #FFE885 0%, #D4AF37 50%, #F5D061 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* ==========================================================================
-   1. PASSWORD SCREEN
-   ========================================================================== */
+/* 1. PASSWORD SCREEN */
 #password-screen {
     position: fixed;
     inset: 0;
     min-height: 100vh;
     min-height: 100dvh;
-    background: radial-gradient(circle at center, #181610 0%, #070708 85%);
+    background: radial-gradient(circle at center, #1A1812 0%, #08080A 85%);
     z-index: 10000;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 20px;
-    transition: opacity 0.8s ease, transform 0.8s ease;
+    transition: opacity 0.6s ease;
 }
 
 #password-screen.unlocked {
     opacity: 0;
-    transform: scale(1.05);
     pointer-events: none;
 }
 
 .password-box {
-    max-width: 380px;
+    max-width: 360px;
     width: 100%;
-    padding: 40px 25px;
+    background: rgba(18, 18, 22, 0.85);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 20px;
+    padding: 35px 25px;
     text-align: center;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
-.lock-heart-icon {
-    font-size: 2.5rem;
-    color: var(--gold-bright);
-    margin-bottom: 20px;
-    animation: heartPulse 2s ease-in-out infinite alternate;
-}
-
-@keyframes heartPulse {
-    0% { transform: scale(1); filter: drop-shadow(0 0 5px var(--gold-primary)); }
-    100% { transform: scale(1.12); filter: drop-shadow(0 0 20px var(--gold-bright)); }
+.heart-icon {
+    font-size: 2.2rem;
+    color: var(--gold-primary);
+    margin-bottom: 15px;
 }
 
 .password-box h2 {
     font-family: var(--font-heading);
-    font-size: 1.8rem;
-    color: #FFF;
+    font-size: 1.7rem;
     margin-bottom: 8px;
+    color: var(--gold-light);
 }
 
 .password-box p {
     color: var(--text-muted);
     font-size: 0.9rem;
-    margin-bottom: 25px;
+    margin-bottom: 22px;
 }
 
 .password-input {
     width: 100%;
-    padding: 14px 18px;
+    padding: 14px;
     background: rgba(0, 0, 0, 0.6);
-    border: 1px solid var(--border-glass);
+    border: 1px solid rgba(212, 175, 55, 0.3);
     border-radius: 12px;
-    color: var(--gold-light);
+    color: #FFF;
     font-size: 1.2rem;
     letter-spacing: 4px;
     text-align: center;
     outline: none;
-    margin-bottom: 20px;
-    transition: var(--transition);
+    margin-bottom: 18px;
 }
 
 .password-input:focus {
     border-color: var(--gold-primary);
-    box-shadow: var(--gold-glow);
 }
 
 .unlock-btn {
     width: 100%;
-    padding: 15px;
+    padding: 14px;
     border: none;
     border-radius: 12px;
-    background: var(--gold-gradient);
+    background: linear-gradient(135deg, #FFF0A5 0%, #D4AF37 100%);
     color: #000;
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     cursor: pointer;
-    box-shadow: var(--gold-glow);
-    transition: var(--transition);
-}
-
-.unlock-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 30px rgba(212, 175, 55, 0.7);
 }
 
 .error-msg {
     color: #FF5E5E;
     font-size: 0.85rem;
-    margin-top: 12px;
+    margin-top: 10px;
     min-height: 20px;
 }
 
@@ -183,258 +143,192 @@ body {
 }
 @keyframes shake {
     0%, 100% { transform: translateX(0); }
-    20%, 60% { transform: translateX(-8px); }
-    40%, 80% { transform: translateX(8px); }
+    25%, 75% { transform: translateX(-6px); }
+    50% { transform: translateX(6px); }
 }
 
-/* ==========================================================================
-   2. FULL SCREEN HERO
-   ========================================================================== */
+/* MAIN SINGLE PAGE WRAPPER */
 #main-wrapper {
-    opacity: 0;
-    transition: opacity 1s ease;
+    display: none;
     position: relative;
     z-index: 5;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 20px 20px 80px;
 }
 #main-wrapper.visible {
-    opacity: 1;
+    display: block;
 }
 
-.hero-section {
-    min-height: 100vh;
-    min-height: 100dvh;
+/* HERO HEADER */
+.hero-header {
+    min-height: 80vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 40px 20px;
-    position: relative;
-    background: linear-gradient(to bottom, rgba(7, 7, 8, 0.6) 0%, rgba(7, 7, 8, 0.95) 100%),
+    padding: 40px 10px;
+    background: linear-gradient(to bottom, rgba(8, 8, 10, 0.4) 0%, rgba(8, 8, 10, 0.95) 100%),
                 url('../assets/images/hero-bg.jpg') center/cover no-repeat;
+    border-radius: 24px;
+    margin-bottom: 40px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
 }
 
-.hero-content {
-    max-width: 750px;
-    margin: auto;
-}
-
-.hero-title {
+.main-title {
     font-family: var(--font-heading);
-    font-size: 3.2rem;
+    font-size: 2.8rem;
+    color: var(--gold-light);
     line-height: 1.4;
-    color: var(--gold-light);
-    margin-bottom: 25px;
-    text-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
-}
-
-.hero-subtitle {
-    font-size: 1.4rem;
-    color: var(--text-muted);
-    line-height: 2;
-    font-weight: 300;
-}
-
-.scroll-hint {
-    margin-top: auto;
-    padding-bottom: 20px;
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-8px); }
-    60% { transform: translateY(-4px); }
-}
-
-/* ==========================================================================
-   COMMON CONTAINER & SECTIONS
-   ========================================================================== */
-.section-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 80px 20px;
-}
-
-.section-title {
-    font-family: var(--font-heading);
-    font-size: 2.2rem;
-    color: var(--gold-light);
-    text-align: center;
-    margin-bottom: 35px;
-}
-
-/* ==========================================================================
-   3. HEARTFELT LOVE LETTER
-   ========================================================================== */
-.letter-box {
-    padding: 45px 35px;
-    position: relative;
-}
-
-.letter-box p {
-    font-size: 1.2rem;
-    line-height: 2.2;
-    color: #EAEAEA;
     margin-bottom: 20px;
-    font-weight: 300;
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+.sub-title {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    line-height: 1.9;
+}
+
+/* HEARTFELT MESSAGE CARD */
+.message-card {
+    background: rgba(18, 18, 22, 0.75);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 20px;
+    padding: 35px 25px;
+    margin-bottom: 40px;
+    backdrop-filter: blur(10px);
+}
+
+.message-card p {
+    font-size: 1.15rem;
+    line-height: 2.1;
+    color: #EFEFEF;
+    margin-bottom: 18px;
     text-align: justify;
 }
 
-.letter-closing {
-    margin-top: 35px;
+.message-signature {
+    margin-top: 30px;
     text-align: left;
     font-family: var(--font-heading);
     font-size: 2.2rem;
-    color: var(--gold-bright);
+    color: var(--gold-primary);
 }
 
-/* ==========================================================================
-   4. SIMPLE PHOTO GALLERY
-   ========================================================================== */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 18px;
-}
-
-.gallery-card {
-    border-radius: 16px;
+/* PHOTO SLIDER */
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    border-radius: 20px;
     overflow: hidden;
-    height: 260px;
-    border: 1px solid var(--border-glass);
-    transition: var(--transition);
+    margin-bottom: 50px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
 }
 
-.gallery-card img {
+.slider-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+.slider-slide.active {
+    opacity: 1;
+}
+
+.slider-slide img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
 }
 
-.gallery-card:hover img {
-    transform: scale(1.08);
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #FFF;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
 }
+.slider-btn.prev { right: 12px; }
+.slider-btn.next { left: 12px; }
 
-/* ==========================================================================
-   5. LIVE ANNIVERSARY COUNTER
-   ========================================================================== */
-.counter-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
+/* SURPRISE BUTTON & MODAL */
+.action-area {
     text-align: center;
-}
-
-.counter-item {
-    padding: 22px 10px;
-}
-
-.counter-num {
-    font-family: var(--font-heading);
-    font-size: 2.6rem;
-    font-weight: 700;
-    color: var(--gold-bright);
-    line-height: 1;
-    margin-bottom: 6px;
-}
-
-.counter-unit {
-    color: var(--text-muted);
-    font-size: 0.85rem;
-}
-
-/* ==========================================================================
-   6. SURPRISE BUTTON & MODAL
-   ========================================================================== */
-.surprise-area {
-    text-align: center;
-    padding: 60px 20px 100px;
+    margin-top: 30px;
 }
 
 .surprise-btn {
-    padding: 18px 45px;
-    font-size: 1.25rem;
-    border-radius: 50px;
-    background: var(--gold-gradient);
+    padding: 16px 45px;
+    font-size: 1.2rem;
+    border-radius: 40px;
+    background: linear-gradient(135deg, #FFF0A5 0%, #D4AF37 100%);
     color: #000;
     font-weight: 700;
     border: none;
     cursor: pointer;
-    box-shadow: var(--gold-glow);
-    transition: var(--transition);
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
     font-family: var(--font-body);
-}
-
-.surprise-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 40px rgba(212, 175, 55, 0.8);
 }
 
 .surprise-modal {
     position: fixed;
     inset: 0;
     z-index: 15000;
-    background: rgba(5, 5, 7, 0.95);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: rgba(5, 5, 7, 0.94);
     display: none;
     align-items: center;
     justify-content: center;
-    padding: 25px;
+    padding: 20px;
 }
 
 .surprise-modal.active {
     display: flex;
 }
 
-.surprise-card {
-    max-width: 500px;
-    width: 100%;
-    padding: 45px 30px;
-    text-align: center;
-    position: relative;
+.surprise-box {
+    background: rgba(18, 18, 22, 0.95);
     border: 1px solid var(--gold-primary);
-    box-shadow: 0 0 40px rgba(212, 175, 55, 0.5);
+    border-radius: 24px;
+    padding: 50px 30px;
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
 }
 
-.surprise-card p {
+.surprise-text {
     font-family: var(--font-heading);
-    font-size: 1.8rem;
-    line-height: 2.2;
+    font-size: 2.2rem;
     color: var(--gold-light);
-    white-space: pre-line;
     margin-bottom: 25px;
 }
 
-.close-modal-btn {
+.close-btn {
     background: transparent;
-    border: 1px solid var(--border-glass);
+    border: 1px solid rgba(212, 175, 55, 0.4);
     color: var(--text-muted);
     padding: 8px 24px;
     border-radius: 20px;
     cursor: pointer;
     font-size: 0.9rem;
-    transition: var(--transition);
 }
 
-.close-modal-btn:hover {
-    color: #FFF;
-    border-color: var(--gold-primary);
-}
-
-/* ==========================================================================
-   RESPONSIVE DESIGN FOR MOBILE
-   ========================================================================== */
+/* MOBILE ADAPTATION */
 @media (max-width: 600px) {
-    .hero-title { font-size: 2.4rem; }
-    .hero-subtitle { font-size: 1.15rem; }
-    .letter-box { padding: 30px 20px; }
-    .letter-box p { font-size: 1.05rem; line-height: 2; }
-    .counter-grid { grid-template-columns: repeat(2, 1fr); }
-    .counter-num { font-size: 2.2rem; }
-    .surprise-card p { font-size: 1.45rem; line-height: 2; }
+    .main-title { font-size: 2.2rem; }
+    .sub-title { font-size: 1.1rem; }
+    .message-card p { font-size: 1.05rem; line-height: 2; }
+    .slider-container { height: 260px; }
+    .surprise-text { font-size: 1.8rem; }
 }

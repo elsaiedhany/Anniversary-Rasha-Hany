@@ -4,142 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>إلى حبيبي هاني ❤️ | رشا</title>
-    <meta name="description" content="هدية خاصة جداً من رشا إلى زوجها الحبيب هاني - 28 يوليو 2003">
-
-    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-
-    <!-- Stylesheets -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- Background Canvas for Particles & Fireworks -->
+    <!-- Ambient Particles Canvas -->
     <canvas id="particles-canvas"></canvas>
-    <canvas id="fireworks-canvas"></canvas>
 
     <!-- 1. PASSWORD SCREEN -->
     <div id="password-screen">
-        <div class="password-box glass-card">
-            <div class="lock-heart-icon">
-                <i class="fas fa-heart"></i>
-            </div>
+        <div class="password-box">
+            <div class="heart-icon"><i class="fas fa-heart"></i></div>
             <h2>هدية خاصة لـ هاني ❤️</h2>
-            <p>أدخل كلمة السر لدخول عالمنا (2872003)</p>
+            <p>أدخل كلمة السر (2872003)</p>
             <input type="password" id="password-input" class="password-input" placeholder="•••••••" maxlength="7" autofocus>
             <button id="unlock-btn" class="unlock-btn">افتح المفاجأة ✨</button>
             <div id="error-msg" class="error-msg"></div>
         </div>
     </div>
 
-    <!-- MAIN EXPERIENCE WRAPPER -->
+    <!-- MAIN SINGLE PAGE -->
     <div id="main-wrapper">
 
-        <!-- 2. FULL-SCREEN HERO -->
-        <section class="hero-section">
-            <div class="hero-content">
-                <h1 class="hero-title">كل سنة وإنت حبيبي يا هاني ❤️</h1>
-                <p class="hero-subtitle">
-                    من يوم 28/7/2003...<br>
-                    وإنت أجمل حاجة حصلتلي.
-                </p>
-            </div>
-            <div class="scroll-hint">
-                <i class="fas fa-chevron-down"></i>
-            </div>
+        <!-- HERO HEADER -->
+        <header class="hero-header">
+            <h1 class="main-title">كل سنة وإنت حبيبي يا هاني ❤️</h1>
+            <p class="sub-title">
+                من يوم 28/7/2003...<br>
+                وإنت أحلى حاجة حصلتلي.
+            </p>
+        </header>
+
+        <!-- HEARTFELT MESSAGE -->
+        <section class="message-card">
+            <p>يا هاني...</p>
+            <p>مش عارفة أوصف قد إيه وجودك في حياتي مفرق معايا.</p>
+            <p>السنين عدت بسرعة، بس كل يوم وأنا معاك بحمد ربنا إنه رزقني بيك.</p>
+            <p>شكراً على كل حاجة حلوة عشناها سوا.</p>
+            <p>وربنا يديمك في حياتي وما يحرمنيش منك.</p>
+            <p>كل سنة وإنت حبيبي ❤️</p>
+            <div class="message-signature">رشا</div>
         </section>
 
-        <!-- 3. HEARTFELT LOVE LETTER -->
-        <section class="section-container">
-            <div class="letter-box glass-card">
-                <p>يا هاني...</p>
-                <p>يمكن السنين بتعدي بسرعة، بس كل يوم بيعدي وأنا معاك بكتشف قد إيه ربنا بيحبني إنه رزقني بيك.</p>
-                <p>من يوم 28 يوليو 2003 وأنت مش بس جوزي... أنت أماني، وسندي، وصاحبي اللي ببتسم أول ما بشوفه.</p>
-                <p>العشرة الطيبة والضحكة الصافية اللي بتملى بيتنا هي أغلى حاجة عندي في الدنيا.</p>
-                <p>وأجمل نعمة ربنا رزقنا بيها هي عيلتنا الجميلة.</p>
-                <p>عايزة أقولك من قلبي... لو العمر يرجع بيا تاني، هختارك أنت برضه في كل مرة.</p>
-                <p>شكراً على كل لحظة دافية وحنية... ربنا يديمك نعمة في حياتي وما يحرمنيش منك أبداً.</p>
-                <div class="letter-closing">
-                    بحبك ❤️<br>
-                    رشا
-                </div>
-            </div>
+        <!-- PHOTO SLIDER -->
+        <section class="slider-container">
+            <div class="slider-slide active"><img src="assets/images/gallery-1.jpg" alt="ذكرياتنا 1"></div>
+            <div class="slider-slide"><img src="assets/images/gallery-2.jpg" alt="ذكرياتنا 2"></div>
+            <div class="slider-slide"><img src="assets/images/gallery-3.jpg" alt="ذكرياتنا 3"></div>
+            <div class="slider-slide"><img src="assets/images/gallery-4.jpg" alt="ذكرياتنا 4"></div>
+            <div class="slider-slide"><img src="assets/images/gallery-5.jpg" alt="ذكرياتنا 5"></div>
+            <div class="slider-slide"><img src="assets/images/gallery-6.jpg" alt="ذكرياتنا 6"></div>
+            
+            <button class="slider-btn prev" id="slider-prev"><i class="fas fa-chevron-right"></i></button>
+            <button class="slider-btn next" id="slider-next"><i class="fas fa-chevron-left"></i></button>
         </section>
 
-        <!-- 4. SIMPLE PHOTO GALLERY -->
-        <section class="section-container">
-            <h2 class="section-title">ذكرياتنا ✨</h2>
-            <div class="gallery-grid">
-                <div class="gallery-card"><img src="assets/images/gallery-1.jpg" alt="خواتم المحبة" loading="lazy"></div>
-                <div class="gallery-card"><img src="assets/images/gallery-2.jpg" alt="أيدي متماسكة" loading="lazy"></div>
-                <div class="gallery-card"><img src="assets/images/gallery-3.jpg" alt="عشاء رومانسي" loading="lazy"></div>
-                <div class="gallery-card"><img src="assets/images/gallery-4.jpg" alt="غروب شمس" loading="lazy"></div>
-                <div class="gallery-card"><img src="assets/images/gallery-5.jpg" alt="ورد أحمر وذهبي" loading="lazy"></div>
-                <div class="gallery-card"><img src="assets/images/gallery-6.jpg" alt="ليلة نجوم" loading="lazy"></div>
-            </div>
-        </section>
+        <!-- SURPRISE BUTTON -->
+        <div class="action-area">
+            <button id="surprise-btn" class="surprise-btn">اضغط هنا ❤️</button>
+        </div>
 
-        <!-- 5. LIVE ANNIVERSARY COUNTER -->
-        <section class="section-container">
-            <h2 class="section-title">رحلتنا معاك ⏳</h2>
-            <div class="counter-grid glass-card">
-                <div class="counter-item">
-                    <div id="counter-years" class="counter-num">00</div>
-                    <div class="counter-unit">سنة</div>
-                </div>
-                <div class="counter-item">
-                    <div id="counter-months" class="counter-num">00</div>
-                    <div class="counter-unit">شهر</div>
-                </div>
-                <div class="counter-item">
-                    <div id="counter-days" class="counter-num">00</div>
-                    <div class="counter-unit">يوم</div>
-                </div>
-                <div class="counter-item">
-                    <div id="counter-hours" class="counter-num">00</div>
-                    <div class="counter-unit">ساعة</div>
-                </div>
-                <div class="counter-item">
-                    <div id="counter-minutes" class="counter-num">00</div>
-                    <div class="counter-unit">دقيقة</div>
-                </div>
-                <div class="counter-item">
-                    <div id="counter-seconds" class="counter-num">00</div>
-                    <div class="counter-unit">ثانية</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 6. FINAL SURPRISE BUTTON -->
-        <section class="surprise-area">
-            <button id="surprise-btn" class="surprise-btn">اضغط هنا يا هاني ❤️</button>
-        </section>
-
-        <!-- SURPRISE MODAL -->
+        <!-- CENTERED MESSAGE MODAL -->
         <div id="surprise-modal" class="surprise-modal">
-            <div class="surprise-card glass-card">
-                <p>
-بحبك يا هاني ❤️
-
-وكل سنة وإنت أغلى إنسان في حياتي.
-
-- رشا
-                </p>
-                <button id="close-modal-btn" class="close-modal-btn">إغلاق ✨</button>
+            <div class="surprise-box">
+                <div class="surprise-text">بحبك يا هاني ❤️</div>
+                <button id="close-modal-btn" class="close-btn">إغلاق</button>
             </div>
         </div>
 
     </div>
 
-    <!-- CDN Libraries -->
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-
-    <!-- Project Scripts -->
     <script src="js/particles.js"></script>
-    <script src="js/fireworks.js"></script>
-    <script src="js/counter.js"></script>
-    <script src="js/music.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>
