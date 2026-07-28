@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>رشا ❤️ هاني | رحلة حب أبدية - 28 يوليو 2003</title>
+    <meta name="title" content="رشا ❤️ هاني | رحلة حب أبدية - 28 يوليو 2003">
+    <meta name="description" content="موقع الاستثنائي الخاص بعيد زواج رشا وهاني. رحلة سنين من الحب، الأمان، والعشرة الطيبة منذ 28 يوليو 2003.">
+    <meta name="keywords" content="رشا, هاني, عيد زواج, حب, ذكرى زواج, 2003, رحلة حب">
+    <meta name="author" content="رشا">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rasha-hany-anniversary.local/">
+    <meta property="og:title" content="رشا ❤️ هاني | رحلة حب أبدية - 28 يوليو 2003">
+    <meta property="og:description" content="كل سنة وإنت حبيبي... موقع ذكرى الزواج الفاخر من رشا إلى هاني.">
+    <meta property="og:image" content="assets/images/hero-bg.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://rasha-hany-anniversary.local/">
+    <meta property="twitter:title" content="رشا ❤️ هاني | رحلة حب أبدية">
+    <meta property="twitter:description" content="من 28 يوليو 2003... وإنت أجمل حاجة حصلتلي.">
+    <meta property="twitter:image" content="assets/images/hero-bg.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Background Canvas -->
+    <canvas id="particles-canvas"></canvas>
+    <canvas id="fireworks-canvas"></canvas>
+
+    <!-- Custom Mouse Glow Pointer -->
+    <div class="mouse-glow"></div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress-container">
+        <div class="scroll-progress-bar"></div>
+    </div>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader-heart-wrapper">
+            <div class="loader-ring"></div>
+            <i class="fas fa-heart loader-heart"></i>
+        </div>
+        <p class="loader-text">جاري تحميل رحلة الحب...</p>
+    </div>
+
+    <!-- Password Screen (First Gate) -->
+    <div id="password-screen">
+        <div class="password-card glass-panel" data-aos="zoom-in">
+            <div class="lock-icon-wrapper">
+                <i class="fas fa-lock"></i>
+            </div>
+            <h2>مفاجأة خاصة جداً ✨</h2>
+            <p>أدخلي تاريخ يوم جوازنا المميز لدخول عالمنا (DDMMYYYY)</p>
+            <div class="password-input-group">
+                <input type="password" id="password-input" class="password-input" placeholder="••••••••" maxlength="8" autofocus>
+            </div>
+            <button id="unlock-btn" class="unlock-btn">
+                <span>افتحي المفاجأة</span>
+                <i class="fas fa-key"></i>
+            </button>
+            <div id="password-error" class="password-error-msg"></div>
+        </div>
+    </div>
+
+    <!-- Cinematic Intro Overlay -->
+    <div id="cinematic-intro">
+        <div class="intro-text-box">
+            <h1 class="intro-typed-text"><span id="intro-typed-output"></span></h1>
+            <button id="intro-continue-btn" class="intro-continue-btn">
+                <span>استكشف عالمنا ❤️</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Website Wrapper -->
+    <div id="main-wrapper">
+
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <a href="#hero" class="nav-brand">
+                <span>رشا</span>
+                <i class="fas fa-heart" style="color: var(--gold-bright); font-size: 1.1rem;"></i>
+                <span>هاني</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#hero" class="active">الرئيسية</a></li>
+                <li><a href="#story">رحلتنا</a></li>
+                <li><a href="#letter">رسالة حب</a></li>
+                <li><a href="#counter">عداد العمر</a></li>
+                <li><a href="#gallery">معرض الصور</a></li>
+                <li><a href="#reasons">لماذا بحبك</a></li>
+                <li><a href="#surprise">المفاجأة</a></li>
+            </ul>
+        </nav>
+
+        <!-- Floating Music Player Button & Widget -->
+        <button id="music-toggle-btn" class="floating-music-btn" title="الموسيقى">
+            <i class="fas fa-music"></i>
+        </button>
+
+        <div id="music-widget" class="music-widget glass-panel">
+            <div class="music-info">
+                <i class="fas fa-compact-disc disc-icon"></i>
+                <div class="music-details">
+                    <h4>لحن حبنا الأبدي</h4>
+                    <p>عزف رومانسي خاص</p>
+                </div>
+            </div>
+            <div class="audio-controls">
+                <button id="play-toggle-btn" class="play-toggle-btn">
+                    <i class="fas fa-play"></i>
+                </button>
+                <div class="equalizer-bars">
+                    <div class="eq-bar"></div>
+                    <div class="eq-bar"></div>
+                    <div class="eq-bar"></div>
+                    <div class="eq-bar"></div>
+                </div>
+                <input type="range" id="volume-slider" class="volume-slider" min="0" max="1" step="0.05" value="0.4">
+            </div>
+        </div>
+
+        <!-- Back to Top Button -->
+        <button class="back-to-top" title="إلى الأعلى">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+
+        <!-- SECTION 1: HERO -->
+        <section id="hero" class="hero-section">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-crown"></i>
+                    <span>ذكرى الزواج الماسية - 28 يوليو 2003</span>
+                </div>
+                <h1 class="hero-title font-heading">
+                    من <span class="text-gold-gradient">28 يوليو 2003</span>...<br>
+                    وإنت أجمل حاجة حصلتلي.
+                </h1>
+                <p class="hero-subtitle">
+                    كل سنة وأنا بحبك أكتر من السنة اللي قبلها. رحلة عمر مليانة دفء، أمان، وحب ملوش نهاية.
+                </p>
+                <div class="hero-cta-wrapper">
+                    <a href="#story" class="cta-button">
+                        <span>ابدأ الرحلة ❤️</span>
+                        <i class="fas fa-arrow-down"></i>
+                    </a>
+                </div>
+            </div>
+            <a href="#story" class="scroll-down-indicator">
+                <span>انزل للأسفل</span>
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </section>
+
+        <!-- SECTION 2: LOVE STORY TIMELINE -->
+        <section id="story" class="section-padding">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-subtitle">حكايتنا عبر السنين</span>
+                <h2 class="section-title">رحلة حُب لا تنتهي</h2>
+                <div class="title-divider"><span>💎</span></div>
+            </div>
+
+            <div class="timeline-container">
+                <!-- Timeline 2003 -->
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card glass-panel">
+                        <span class="timeline-year">28 يوليو 2003</span>
+                        <h3>بداية الحكاية والعهد الأبدي</h3>
+                        <p>اليوم اللي كتبنا فيه أول سطر في كتاب حياتنا سوا. يوم ما إيدنا مسكت بعض، ووعدنا بعض كمل المشوار بحب وإخلاص.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline 2008 -->
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card glass-panel">
+                        <span class="timeline-year">2008</span>
+                        <h3>خمس سنوات من الدفء والسند</h3>
+                        <p>أثبتت الأيام إنك مش بس جوزي، إنت السند الحقيقي والأمان اللي بمشي بيه في الدنيا وأنا مطمنة.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline 2013 -->
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card glass-panel">
+                        <span class="timeline-year">2013</span>
+                        <h3>عشر سنوات من النضج والشغف</h3>
+                        <p>عشرة طيبة، وضحكة صافية بتملى بيتنا. كل يوم بيعدي بيثبتلي إن اختيارك كان أحلى قرار خدته في حياتي.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline 2018 -->
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card glass-panel">
+                        <span class="timeline-year">2018</span>
+                        <h3>خمسة عشر عاماً من الأمان والراحة</h3>
+                        <p>مرت السنين بحلوها، وكنت دايماً الملجأ والمكان الدافي اللي برتاح فيه من كل ضغوط الحياة.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline 2023 -->
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card glass-panel">
+                        <span class="timeline-year">2023</span>
+                        <h3>عشرون عاماً من الحب والوفاء المستمر</h3>
+                        <p>عشرين سنة حب، عطاء، واحترام متبادل. حكايتنا بتكبر وتزيد جمال مع كل دقيقة بتعدي علينا.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Present -->
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card glass-panel">
+                        <span class="timeline-year">اليوم وكل يوم</span>
+                        <h3>مكملين بنفس الحب والعهد</h3>
+                        <p>كل لحظة معاك هي نعمة من ربنا، والجاية أحلى وأجمل بوجودك جنبي يا أغلى الناس.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: LOVE LETTER -->
+        <section id="letter" class="section-padding letter-section">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-subtitle">من أعماق قلبي</span>
+                <h2 class="section-title">رسالة حب وإمتنان</h2>
+                <div class="title-divider"><span>📜</span></div>
+            </div>
+
+            <div class="letter-wrapper" data-aos="zoom-in">
+                <div class="letter-header">
+                    <h3 class="letter-salutation">حبيبي وزوجي الغالي هاني ❤️</h3>
+                </div>
+                <div class="letter-content">
+                    <p>
+                        مش عارفة أبدأ منين ولا أقول إيه، بس السنين اللي عدت دي كلها أثبتتلي إن وجودك في حياتي هو أكبر نعمة ربنا رزقني بيها. من يوم 28 يوليو 2003 لحد النهار ده، وإنت مش بس زوجي... إنت الأمان اللي بدور عليه، والسند اللي بتسند عليه في كل لحظة، وصاحبي اللي بحكيله كل حاجة من غير خوف ولا تردد.
+                    </p>
+                    <p>
+                        العشرة الطيبة بيننا والاحترام المتبادل هما السر اللي مخلي حبنا ينور ويكبر كل يوم. إنت مش بس مليت حياتي بالضحكة والدفء، إنت خليت للدنيا طعم تاني خالص.
+                    </p>
+                    <p>
+                        وأجمل نعمة ربنا رزقنا بيها هي عيلتنا الجميلة.
+                    </p>
+                    <p>
+                        عايزة أقولك بجد... لو العمر يرجع بيا ألف مرة من جديد، ولو اتعرض عليا كل اختيارات الدنيا... هختارك إنت برضه في كل مرة من غير ما أفكر ثانية واحدة.
+                    </p>
+                    <p>
+                        شكراً على كل لحظة حنية، شكراً على احتواءك وتفهمك، وشكراً لأنك دايماً راجل وسند ومصدر راحة لقلبي. ربنا يديمك نعمة في حياتي، وما يحشنيش منك أبداً، ونفضل مع بعض العمر كله في حب وسعادة.
+                    </p>
+                </div>
+                <div class="letter-signature">
+                    <div class="signature-valediction">بحبك من كل قلبي ❤️</div>
+                    <div class="signature-name">رشا</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: MARRIAGE COUNTER -->
+        <section id="counter" class="section-padding counter-section">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-subtitle">دقيقة بدقيقة وثانية بثانية</span>
+                <h2 class="section-title">عداد رحلة حُبنا</h2>
+                <div class="title-divider"><span>⏳</span></div>
+            </div>
+
+            <div class="counter-grid">
+                <div class="counter-card glass-panel" data-aos="fade-up" data-aos-delay="100">
+                    <div id="counter-years" class="counter-value">00</div>
+                    <div class="counter-label">سنوات</div>
+                </div>
+                <div class="counter-card glass-panel" data-aos="fade-up" data-aos-delay="200">
+                    <div id="counter-months" class="counter-value">00</div>
+                    <div class="counter-label">أشهر</div>
+                </div>
+                <div class="counter-card glass-panel" data-aos="fade-up" data-aos-delay="300">
+                    <div id="counter-days" class="counter-value">00</div>
+                    <div class="counter-label">أيام</div>
+                </div>
+                <div class="counter-card glass-panel" data-aos="fade-up" data-aos-delay="400">
+                    <div id="counter-hours" class="counter-value">00</div>
+                    <div class="counter-label">ساعات</div>
+                </div>
+                <div class="counter-card glass-panel" data-aos="fade-up" data-aos-delay="500">
+                    <div id="counter-minutes" class="counter-value">00</div>
+                    <div class="counter-label">دقائق</div>
+                </div>
+                <div class="counter-card glass-panel" data-aos="fade-up" data-aos-delay="600">
+                    <div id="counter-seconds" class="counter-value">00</div>
+                    <div class="counter-label">ثواني</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: GALLERY -->
+        <section id="gallery" class="section-padding">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-subtitle">أجمل اللحظات</span>
+                <h2 class="section-title">معرض الذكريات الفاخر</h2>
+                <div class="title-divider"><span>📸</span></div>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item" data-aos="zoom-in">
+                    <img src="assets/images/gallery-1.jpg" alt="خواتم المحبة" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-caption">خواتم العهد والرباط الأبدي 💍</h3>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="assets/images/gallery-2.jpg" alt="أيدي متماسكة" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-caption">إيدك في إيدي للأبد 🤝</h3>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="assets/images/gallery-3.jpg" alt="عشاء رومانسي" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-caption">أمسيات الحب والدفء ✨</h3>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="assets/images/gallery-4.jpg" alt="غروب شمس رومانسي" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-caption">مع كل غروب وشروق بحبك 🌅</h3>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="400">
+                    <img src="assets/images/gallery-5.jpg" alt="ورد ذهبي وأحمر" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-caption">ورود العشق والامتنان 🌹</h3>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="500">
+                    <img src="assets/images/gallery-6.jpg" alt="ليلة سحرية" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-caption">حبنا ينور كأنجم السماء 🌌</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LIGHTBOX MODAL -->
+        <div id="lightbox-modal" class="lightbox-modal">
+            <button id="lightbox-close" class="lightbox-close"><i class="fas fa-times"></i></button>
+            <button id="lightbox-prev" class="lightbox-prev"><i class="fas fa-chevron-right"></i></button>
+            <button id="lightbox-next" class="lightbox-next"><i class="fas fa-chevron-left"></i></button>
+            <div class="lightbox-content">
+                <img id="lightbox-img" class="lightbox-img" src="" alt="صورة مكبرة">
+                <div id="lightbox-caption" class="lightbox-caption"></div>
+            </div>
+        </div>
+
+        <!-- SECTION 6: REASONS I LOVE YOU -->
+        <section id="reasons" class="section-padding">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-subtitle">لماذا إنت بالذات؟</span>
+                <h2 class="section-title">أسباب حبك في قلبي</h2>
+                <div class="title-divider"><span>💖</span></div>
+            </div>
+
+            <div class="reasons-grid">
+                <div class="reason-card glass-panel" data-aos="fade-up" data-aos-delay="100">
+                    <div class="reason-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3 class="reason-title">أمان</h3>
+                    <p class="reason-desc">لأنك الحصن الدافي والمكان اللي بحس فيه بمنتهى الطمأنينة والسلام.</p>
+                </div>
+                <div class="reason-card glass-panel" data-aos="fade-up" data-aos-delay="200">
+                    <div class="reason-icon"><i class="fas fa-hands-helping"></i></div>
+                    <h3 class="reason-title">سند</h3>
+                    <p class="reason-desc">لأنك ظهر قوي وكتف ثابت بتسند عليه في كل لحظة وفي أي ظروف.</p>
+                </div>
+                <div class="reason-card glass-panel" data-aos="fade-up" data-aos-delay="300">
+                    <div class="reason-icon"><i class="fas fa-user-friends"></i></div>
+                    <h3 class="reason-title">صاحبي</h3>
+                    <p class="reason-desc">لأنك الصديق الأقرب لقلبي اللي بحكيله كل حاجة وأنا مطمنة وفاهم كلماتي.</p>
+                </div>
+                <div class="reason-card glass-panel" data-aos="fade-up" data-aos-delay="400">
+                    <div class="reason-icon"><i class="fas fa-smile-beam"></i></div>
+                    <h3 class="reason-title">ضحكتي</h3>
+                    <p class="reason-desc">لأن البسمة على وشي والبهجة في بيتنا سببها وجودك وحنيتك العظيمة.</p>
+                </div>
+                <div class="reason-card glass-panel" data-aos="fade-up" data-aos-delay="500">
+                    <div class="reason-icon"><i class="fas fa-heartbeat"></i></div>
+                    <h3 class="reason-title">راحة قلبي</h3>
+                    <p class="reason-desc">لأن مجرد صوتك ونظرة عينيك بتطمن روحي وتهدّي كل قلق جوايا.</p>
+                </div>
+                <div class="reason-card glass-panel" data-aos="fade-up" data-aos-delay="600">
+                    <div class="reason-icon"><i class="fas fa-gem"></i></div>
+                    <h3 class="reason-title">أحلى قرار</h3>
+                    <p class="reason-desc">لأن اختيارك هو أفضل وأجمل قرار خدته في حياتي كلها وبحمد ربنا عليه كل يوم.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 8: SURPRISE -->
+        <section id="surprise" class="section-padding surprise-section">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-subtitle">الختام السينمائي</span>
+                <h2 class="section-title">المفاجأة الكبرى ✨</h2>
+                <div class="title-divider"><span>🎁</span></div>
+            </div>
+
+            <div class="surprise-box" data-aos="zoom-in">
+                <button id="surprise-btn" class="surprise-btn">
+                    <span>اضغط لاكتشاف المفاجأة الكبرى ✨</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- SURPRISE MODAL -->
+        <div id="surprise-modal" class="surprise-modal">
+            <div class="surprise-card glass-panel">
+                <button id="surprise-close" class="surprise-close"><i class="fas fa-times"></i></button>
+                <div class="surprise-message-text">
+يا هاني...
+
+يمكن السنين عدت بسرعة...
+بس حبك جوايا عمره ما قل.
+
+إنت السند...
+وإنت الأمان...
+وإنت أحلى قرار خدته في حياتي.
+
+ولو رجع بيا الزمن ألف مرة...
+هختارك كل مرة.
+
+كل سنة وإنت حبيبي.
+وربنا يديمك نعمة في حياتي.
+
+بحبك ❤️
+رشا
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="footer-brand">رشا ❤️ هاني</div>
+            <p class="footer-sub">منذ 28 يوليو 2003 وإلى الأبد • ذكرى زواج ميمونة ومباركة</p>
+        </footer>
+
+    </div>
+
+    <!-- Animation & Utility CDN Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <!-- Custom Modules -->
+    <script src="js/particles.js"></script>
+    <script src="js/fireworks.js"></script>
+    <script src="js/counter.js"></script>
+    <script src="js/music.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
