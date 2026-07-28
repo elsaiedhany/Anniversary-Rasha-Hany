@@ -1,0 +1,5 @@
+node_modules/
+scratch_test_site.js
+screenshots/
+package-lock.json
+package.json

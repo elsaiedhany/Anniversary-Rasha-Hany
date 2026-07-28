@@ -102,7 +102,7 @@
 
         function checkPassword() {
             const value = passwordInput ? passwordInput.value.trim() : '';
-            if (value === '28072003') {
+            if (value === '2872003') {
                 // Correct Password
                 if (passwordError) passwordError.classList.remove('visible');
                 if (passwordScreen) passwordScreen.classList.add('unlocked');
