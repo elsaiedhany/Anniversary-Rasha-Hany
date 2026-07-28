@@ -1,12 +1,12 @@
 /* ==========================================================================
-   MARRIAGE TIMER COUNTER ENGINE
-   Calculates precise duration since 28 July 2003
+   MARRIAGE TIMER COUNTER ENGINE (PRODUCTION DEBUGGED & CROSS-BROWSER SAFE)
    ========================================================================== */
 
 (function () {
     'use strict';
 
-    const startDate = new Date('2003-07-28T00:00:00');
+    // Numeric Date constructor: Month 6 = July (0-indexed) to avoid iOS Safari string parsing NaN bug
+    const startDate = new Date(2003, 6, 28, 0, 0, 0);
 
     const yearsEl = document.getElementById('counter-years');
     const monthsEl = document.getElementById('counter-months');
@@ -19,7 +19,7 @@
 
     function updateCounter() {
         const now = new Date();
-        
+
         let years = now.getFullYear() - startDate.getFullYear();
         let months = now.getMonth() - startDate.getMonth();
         let days = now.getDate() - startDate.getDate();
@@ -40,7 +40,6 @@
             days--;
         }
         if (days < 0) {
-            // Get last day of previous month
             const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
             days += prevMonth.getDate();
             months--;
@@ -50,12 +49,12 @@
             years--;
         }
 
-        yearsEl.textContent = String(years).padStart(2, '0');
-        monthsEl.textContent = String(months).padStart(2, '0');
-        daysEl.textContent = String(days).padStart(2, '0');
-        hoursEl.textContent = String(hours).padStart(2, '0');
-        minutesEl.textContent = String(minutes).padStart(2, '0');
-        secondsEl.textContent = String(seconds).padStart(2, '0');
+        yearsEl.textContent = String(Math.max(0, years)).padStart(2, '0');
+        monthsEl.textContent = String(Math.max(0, months)).padStart(2, '0');
+        daysEl.textContent = String(Math.max(0, days)).padStart(2, '0');
+        hoursEl.textContent = String(Math.max(0, hours)).padStart(2, '0');
+        minutesEl.textContent = String(Math.max(0, minutes)).padStart(2, '0');
+        secondsEl.textContent = String(Math.max(0, seconds)).padStart(2, '0');
     }
 
     updateCounter();
