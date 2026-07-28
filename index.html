@@ -5,92 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>إلى حبيبي هاني ❤️ | رشا</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- Ambient Floating Hearts Canvas -->
-    <canvas id="particles-canvas"></canvas>
-
     <!-- 1. PASSWORD SCREEN -->
     <div id="password-screen">
-        <div class="password-box">
-            <div class="heart-icon"><i class="fas fa-heart"></i></div>
-            <h2>مفاجأة خاصة لـ هاني ❤️</h2>
+        <div class="password-card">
+            <h2>هدية خاصة لـ هاني ❤️</h2>
             <p>أدخل كلمة السر (2872003)</p>
             <input type="password" id="password-input" class="password-input" placeholder="•••••••" maxlength="7" autofocus>
-            <button id="unlock-btn" class="unlock-btn">افتح المفاجأة ✨</button>
+            <button id="unlock-btn" class="unlock-btn">افتح الرسالة ✨</button>
             <div id="error-msg" class="error-msg"></div>
         </div>
     </div>
 
-    <!-- MAIN SINGLE PAGE -->
+    <!-- 2. MAIN LOVE LETTER PAGE -->
     <div id="main-wrapper">
 
-        <!-- HERO HEADER -->
-        <header class="hero-header">
-            <h1 class="main-title">كل سنة وإنت حبيبي وسندي يا هاني ❤️</h1>
-            <p class="sub-title">
-                من يوم 28/7/2003...<br>
-                وإنت أحلى حاجة حصلتلي في العمر كله.
-            </p>
+        <!-- HEADER WITH SOFTLY BEATING HEART -->
+        <header class="letter-header">
+            <div class="soft-beating-heart">❤️</div>
+            <h1 class="letter-title">كل سنة وإنت حبيبي يا هاني</h1>
         </header>
 
-        <!-- HEARTFELT LOVE LETTER -->
-        <section class="message-card">
+        <!-- SINGLE PHOTO -->
+        <div class="single-photo-box">
+            <img src="assets/images/hero-bg.jpg" alt="صورة حب">
+        </div>
+
+        <!-- HEARTFELT MESSAGE -->
+        <article class="letter-content">
             <p>يا هاني...</p>
-            <p>يمكن الكلام مهما كان حلو مبيقدرش يوصف مشاعري بجد ولا يطلع اللي في قلبي ناحيتك.</p>
-            <p>إنت مش بس جوزي يا هاني... إنت الأمان اللي بحس بيه أول ما بكون جنبك، وسندي اللي بتسند عليه في كل وقت، وصاحبي الغالي اللي بشاركه كل تفصيلة في حياتي.</p>
-            <p>كل يوم بيعدي علينا وأنا معاك، بحمد ربنا من كل قلبي إنه رزقني بيك وجعلك من نصيبي. العشرة الطيبة بيننا، حنيتك عليا، وضحكتك اللي بتملى بيتنا دفء، هما السر اللي مخلي حياتي حلوة ومنورة.</p>
-            <p>أنا ممتنة ليك ول كل لحظة حلوة عشناها سوا، ولكل موقف أثبتلي فيه إنك أرجل وأحن راجل في الدنيا.</p>
-            <p>عايزة أقولك من جوة قلبي... لو العمر يرجع بيا تاني من الأول، ولو خيروني ألف مرة بين كل الناس... هختارك إنت برضه في كل مرة من غير ما أفكر ثانية واحدة.</p>
-            <p>ربنا يديمك في حياتي نعمة وسند، ويحفظك ليا ولبيتنا، وما يحرمنيش من وجودك ولا من حنيتك أبداً يا غالي.</p>
-            <div class="message-signature">
-                <div class="sig-sub">مراتك اللي بتحبك ❤️</div>
-                <div class="sig-name">رشا</div>
-            </div>
-        </section>
+            <p>مش عارفة أوصف قد إيه وجودك في حياتي مفرق معايا.</p>
+            <p>السنين عدت بسرعة، بس كل يوم وأنا معاك بحمد ربنا إنه رزقني بيك.</p>
+            <p>شكراً على كل حاجة حلوة عشناها سوا.</p>
+            <p>وربنا يديمك في حياتي وما يحرمنيش منك.</p>
+            <p>كل سنة وإنت حبيبي ❤️</p>
 
-        <!-- PHOTO SLIDER -->
-        <section class="slider-container">
-            <div class="slider-slide active"><img src="assets/images/gallery-1.jpg" alt="ذكرياتنا 1"></div>
-            <div class="slider-slide"><img src="assets/images/gallery-2.jpg" alt="ذكرياتنا 2"></div>
-            <div class="slider-slide"><img src="assets/images/gallery-3.jpg" alt="ذكرياتنا 3"></div>
-            <div class="slider-slide"><img src="assets/images/gallery-4.jpg" alt="ذكرياتنا 4"></div>
-            <div class="slider-slide"><img src="assets/images/gallery-5.jpg" alt="ذكرياتنا 5"></div>
-            <div class="slider-slide"><img src="assets/images/gallery-6.jpg" alt="ذكرياتنا 6"></div>
-
-            <button class="slider-btn prev" id="slider-prev"><i class="fas fa-chevron-right"></i></button>
-            <button class="slider-btn next" id="slider-next"><i class="fas fa-chevron-left"></i></button>
-        </section>
-
-        <!-- SURPRISE BUTTON -->
-        <div class="action-area">
-            <button id="surprise-btn" class="surprise-btn">اضغط هنا يا هاني ❤️</button>
-        </div>
-
-        <!-- CENTERED MESSAGE MODAL -->
-        <div id="surprise-modal" class="surprise-modal">
-            <div class="surprise-box">
-                <div class="beating-heart">❤️</div>
-                <div class="surprise-text">يا هاني...
-يمكن الكلام ميكفيش يوصف اللي جوايا...
-بس كل اللي أعرفه إنك أحلى نعمة ربنا رزقني بيها.
-ولو خيروني ألف مرة...
-هختارك إنت في كل مرة.
-بحبك أوي ❤️❤️❤️
-وكل سنة وإنت حبيبي.
-مراتك رشا ❤️</div>
-                <button id="close-modal-btn" class="close-btn">إغلاق ✨</button>
-            </div>
-        </div>
+            <footer class="letter-footer">
+                <div class="footer-love">بحبك أوي ❤️</div>
+                <div class="footer-wife">مراتك</div>
+                <div class="footer-name">رشا</div>
+            </footer>
+        </article>
 
     </div>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    <script src="js/particles.js"></script>
+    <!-- Script -->
     <script src="js/app.js"></script>
 </body>
 </html>

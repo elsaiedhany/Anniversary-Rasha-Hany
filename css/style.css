@@ -1,17 +1,17 @@
 /* ==========================================================================
-   RASHA ❤️ HANY - ROMANTIC ANNIVERSARY GIFT
-   Design: Intimate, Warm, Floating Hearts & Beating Heart Effect
+   HANDWRITTEN DIGITAL LOVE LETTER - RASHA & HANY
+   Simple, Intimate, Pure Black & Gold
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;600;700&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap');
 
 :root {
-    --bg-dark: #08080A;
+    --bg-black: #050507;
+    --card-dark: rgba(18, 18, 22, 0.9);
     --gold-primary: #D4AF37;
     --gold-light: #F5E6AD;
-    --rose-accent: #FF5E7E;
     --text-white: #FFFFFF;
-    --text-muted: #E0E0E6;
+    --text-muted: #D8D8DF;
     --font-heading: 'Amiri', serif;
     --font-body: 'Alexandria', sans-serif;
 }
@@ -27,37 +27,26 @@ html {
     text-align: right;
     scroll-behavior: smooth;
     font-size: 16px;
-    background-color: var(--bg-dark);
+    background-color: var(--bg-black);
     color: var(--text-white);
     font-family: var(--font-body);
 }
 
 body {
-    background: #08080A;
+    background-color: var(--bg-black);
     color: var(--text-white);
     line-height: 1.85;
     min-height: 100vh;
     overflow-x: hidden;
 }
 
-/* Floating Hearts Canvas */
-#particles-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1;
-}
-
-/* 1. PASSWORD SCREEN */
+/* PASSWORD OVERLAY */
 #password-screen {
     position: fixed;
     inset: 0;
     min-height: 100vh;
     min-height: 100dvh;
-    background: radial-gradient(circle at center, #1C1914 0%, #08080A 85%);
+    background: #050507;
     z-index: 10000;
     display: flex;
     align-items: center;
@@ -71,39 +60,24 @@ body {
     pointer-events: none;
 }
 
-.password-box {
-    max-width: 370px;
+.password-card {
+    max-width: 360px;
     width: 100%;
-    background: rgba(18, 18, 22, 0.88);
+    background: var(--card-dark);
     border: 1px solid rgba(212, 175, 55, 0.35);
-    border-radius: 24px;
+    border-radius: 20px;
     padding: 40px 25px;
     text-align: center;
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
 }
 
-.heart-icon {
-    font-size: 2.5rem;
-    color: var(--rose-accent);
-    margin-bottom: 15px;
-    animation: heartPulse 1.8s ease-in-out infinite alternate;
-}
-
-@keyframes heartPulse {
-    0% { transform: scale(1); filter: drop-shadow(0 0 5px var(--rose-accent)); }
-    100% { transform: scale(1.15); filter: drop-shadow(0 0 20px var(--rose-accent)); }
-}
-
-.password-box h2 {
+.password-card h2 {
     font-family: var(--font-heading);
-    font-size: 1.8rem;
-    margin-bottom: 8px;
+    font-size: 1.7rem;
     color: var(--gold-light);
+    margin-bottom: 8px;
 }
 
-.password-box p {
+.password-card p {
     color: var(--text-muted);
     font-size: 0.9rem;
     margin-bottom: 22px;
@@ -112,7 +86,7 @@ body {
 .password-input {
     width: 100%;
     padding: 14px;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.7);
     border: 1px solid rgba(212, 175, 55, 0.3);
     border-radius: 12px;
     color: #FFF;
@@ -125,12 +99,11 @@ body {
 
 .password-input:focus {
     border-color: var(--gold-primary);
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
 }
 
 .unlock-btn {
     width: 100%;
-    padding: 15px;
+    padding: 14px;
     border: none;
     border-radius: 12px;
     background: linear-gradient(135deg, #FFF0A5 0%, #D4AF37 100%);
@@ -138,7 +111,6 @@ body {
     font-weight: 700;
     font-size: 1.05rem;
     cursor: pointer;
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
 }
 
 .error-msg {
@@ -157,231 +129,108 @@ body {
     50% { transform: translateX(6px); }
 }
 
-/* MAIN SINGLE PAGE WRAPPER */
+/* MAIN LETTER PAGE */
 #main-wrapper {
     display: none;
-    position: relative;
-    z-index: 5;
-    max-width: 680px;
+    max-width: 620px;
     margin: 0 auto;
-    padding: 20px 20px 80px;
+    padding: 50px 20px 80px;
 }
 #main-wrapper.visible {
     display: block;
 }
 
-/* HERO HEADER */
-.hero-header {
-    min-height: 82vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.letter-header {
     text-align: center;
-    padding: 40px 15px;
-    background: linear-gradient(to bottom, rgba(8, 8, 10, 0.45) 0%, rgba(8, 8, 10, 0.95) 100%),
-                url('../assets/images/hero-bg.jpg') center/cover no-repeat;
-    border-radius: 24px;
-    margin-bottom: 40px;
-    border: 1px solid rgba(212, 175, 55, 0.25);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+    margin-bottom: 35px;
 }
 
-.main-title {
-    font-family: var(--font-heading);
+/* SOFT SLOWLY BEATING HEART */
+.soft-beating-heart {
     font-size: 3rem;
+    color: #FF5E7E;
+    margin-bottom: 15px;
+    display: inline-block;
+    animation: softHeartBeat 2.2s infinite ease-in-out;
+}
+
+@keyframes softHeartBeat {
+    0%, 100% { transform: scale(1); filter: drop-shadow(0 0 6px rgba(255, 94, 126, 0.4)); }
+    50% { transform: scale(1.15); filter: drop-shadow(0 0 16px rgba(255, 94, 126, 0.8)); }
+}
+
+.letter-title {
+    font-family: var(--font-heading);
+    font-size: 2.6rem;
     color: var(--gold-light);
     line-height: 1.4;
-    margin-bottom: 22px;
-    text-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
+    margin-bottom: 10px;
 }
 
-.sub-title {
-    font-size: 1.3rem;
-    color: var(--text-muted);
-    line-height: 1.9;
-    font-weight: 300;
+/* SINGLE PHOTO CONTAINER */
+.single-photo-box {
+    width: 100%;
+    max-height: 360px;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 35px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
 }
 
-/* HEARTFELT LOVE LETTER */
-.message-card {
-    background: rgba(18, 18, 22, 0.82);
+.single-photo-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* LOVE LETTER CONTENT */
+.letter-content {
+    background: var(--card-dark);
     border: 1px solid rgba(212, 175, 55, 0.3);
     border-radius: 24px;
-    padding: 45px 32px;
-    margin-bottom: 45px;
-    backdrop-filter: blur(12px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    padding: 40px 30px;
 }
 
-.message-card p {
-    font-size: 1.2rem;
-    line-height: 2.25;
+.letter-content p {
+    font-size: 1.15rem;
+    line-height: 2.2;
     color: #F0F0F2;
-    margin-bottom: 22px;
+    margin-bottom: 20px;
     text-align: justify;
     font-weight: 300;
 }
 
-.message-signature {
-    margin-top: 35px;
+.letter-footer {
+    margin-top: 40px;
     text-align: left;
 }
 
-.sig-sub {
+.footer-love {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    color: var(--gold-primary);
+    margin-bottom: 5px;
+}
+
+.footer-wife {
     font-size: 1.1rem;
     color: var(--text-muted);
 }
 
-.sig-name {
+.footer-name {
     font-family: var(--font-heading);
-    font-size: 2.5rem;
-    color: var(--gold-primary);
-    margin-top: 5px;
-}
-
-/* PHOTO SLIDER */
-.slider-container {
-    position: relative;
-    width: 100%;
-    height: 350px;
-    border-radius: 20px;
-    overflow: hidden;
-    margin-bottom: 50px;
-    border: 1px solid rgba(212, 175, 55, 0.3);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-}
-
-.slider-slide {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    transition: opacity 0.7s ease;
-}
-.slider-slide.active {
-    opacity: 1;
-}
-
-.slider-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.slider-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.55);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    color: #FFF;
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-}
-.slider-btn.prev { right: 12px; }
-.slider-btn.next { left: 12px; }
-
-/* SURPRISE BUTTON & MODAL */
-.action-area {
-    text-align: center;
-    margin-top: 30px;
-}
-
-.surprise-btn {
-    padding: 18px 50px;
-    font-size: 1.25rem;
-    border-radius: 40px;
-    background: linear-gradient(135deg, #FFF0A5 0%, #D4AF37 100%);
-    color: #000;
-    font-weight: 700;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
-    font-family: var(--font-body);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.surprise-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 45px rgba(212, 175, 55, 0.8);
-}
-
-.surprise-modal {
-    position: fixed;
-    inset: 0;
-    z-index: 15000;
-    background: rgba(5, 5, 7, 0.95);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-
-.surprise-modal.active {
-    display: flex;
-}
-
-.surprise-box {
-    background: linear-gradient(160deg, rgba(22, 20, 15, 0.95) 0%, rgba(10, 10, 12, 0.98) 100%);
-    border: 2px solid var(--gold-primary);
-    border-radius: 28px;
-    padding: 50px 30px;
-    text-align: center;
-    max-width: 460px;
-    width: 100%;
-    box-shadow: 0 0 50px rgba(212, 175, 55, 0.6);
-}
-
-/* BEATING HEART ANIMATION */
-.beating-heart {
-    font-size: 4rem;
-    color: var(--rose-accent);
-    margin-bottom: 20px;
-    animation: heartBeat 1.2s infinite ease-in-out;
-}
-
-@keyframes heartBeat {
-    0% { transform: scale(1); filter: drop-shadow(0 0 10px var(--rose-accent)); }
-    14% { transform: scale(1.25); filter: drop-shadow(0 0 25px var(--rose-accent)); }
-    28% { transform: scale(1); filter: drop-shadow(0 0 10px var(--rose-accent)); }
-    42% { transform: scale(1.25); filter: drop-shadow(0 0 25px var(--rose-accent)); }
-    70% { transform: scale(1); filter: drop-shadow(0 0 10px var(--rose-accent)); }
-}
-
-.surprise-text {
-    font-family: var(--font-heading);
-    font-size: 1.7rem;
-    line-height: 2.1;
+    font-size: 2.4rem;
     color: var(--gold-light);
-    margin-bottom: 28px;
-    white-space: pre-line;
-}
-
-.close-btn {
-    background: transparent;
-    border: 1px solid rgba(212, 175, 55, 0.4);
-    color: var(--text-muted);
-    padding: 10px 28px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 0.95rem;
+    margin-top: 2px;
 }
 
 /* MOBILE ADAPTATION */
 @media (max-width: 600px) {
-    .main-title { font-size: 2.3rem; }
-    .sub-title { font-size: 1.1rem; }
-    .message-card { padding: 32px 20px; }
-    .message-card p { font-size: 1.08rem; line-height: 2.05; }
-    .slider-container { height: 260px; }
-    .surprise-text { font-size: 1.45rem; line-height: 2; }
-    .beating-heart { font-size: 3.2rem; }
+    .letter-title { font-size: 2.1rem; }
+    .single-photo-box { max-height: 280px; }
+    .letter-content { padding: 30px 20px; }
+    .letter-content p { font-size: 1.05rem; line-height: 2.05; }
+    .footer-love { font-size: 1.9rem; }
+    .footer-name { font-size: 2.1rem; }
 }
