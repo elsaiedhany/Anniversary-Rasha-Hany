@@ -1,6 +1,6 @@
 /* ==========================================================================
-   SIMPLE ROMANTIC GIFT - RASHA & HANY
-   Mobile-First, Pure & Minimalist Design
+   RASHA ❤️ HANY - ROMANTIC ANNIVERSARY GIFT
+   Design: Intimate, Warm, Floating Hearts & Beating Heart Effect
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;600;700&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap');
@@ -9,8 +9,9 @@
     --bg-dark: #08080A;
     --gold-primary: #D4AF37;
     --gold-light: #F5E6AD;
+    --rose-accent: #FF5E7E;
     --text-white: #FFFFFF;
-    --text-muted: #D0D0D5;
+    --text-muted: #E0E0E6;
     --font-heading: 'Amiri', serif;
     --font-body: 'Alexandria', sans-serif;
 }
@@ -34,12 +35,12 @@ html {
 body {
     background: #08080A;
     color: var(--text-white);
-    line-height: 1.8;
+    line-height: 1.85;
     min-height: 100vh;
     overflow-x: hidden;
 }
 
-/* Floating Canvas */
+/* Floating Hearts Canvas */
 #particles-canvas {
     position: fixed;
     top: 0;
@@ -56,7 +57,7 @@ body {
     inset: 0;
     min-height: 100vh;
     min-height: 100dvh;
-    background: radial-gradient(circle at center, #1A1812 0%, #08080A 85%);
+    background: radial-gradient(circle at center, #1C1914 0%, #08080A 85%);
     z-index: 10000;
     display: flex;
     align-items: center;
@@ -71,26 +72,33 @@ body {
 }
 
 .password-box {
-    max-width: 360px;
+    max-width: 370px;
     width: 100%;
-    background: rgba(18, 18, 22, 0.85);
-    border: 1px solid rgba(212, 175, 55, 0.3);
-    border-radius: 20px;
-    padding: 35px 25px;
+    background: rgba(18, 18, 22, 0.88);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    border-radius: 24px;
+    padding: 40px 25px;
     text-align: center;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
 }
 
 .heart-icon {
-    font-size: 2.2rem;
-    color: var(--gold-primary);
+    font-size: 2.5rem;
+    color: var(--rose-accent);
     margin-bottom: 15px;
+    animation: heartPulse 1.8s ease-in-out infinite alternate;
+}
+
+@keyframes heartPulse {
+    0% { transform: scale(1); filter: drop-shadow(0 0 5px var(--rose-accent)); }
+    100% { transform: scale(1.15); filter: drop-shadow(0 0 20px var(--rose-accent)); }
 }
 
 .password-box h2 {
     font-family: var(--font-heading);
-    font-size: 1.7rem;
+    font-size: 1.8rem;
     margin-bottom: 8px;
     color: var(--gold-light);
 }
@@ -117,11 +125,12 @@ body {
 
 .password-input:focus {
     border-color: var(--gold-primary);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
 }
 
 .unlock-btn {
     width: 100%;
-    padding: 14px;
+    padding: 15px;
     border: none;
     border-radius: 12px;
     background: linear-gradient(135deg, #FFF0A5 0%, #D4AF37 100%);
@@ -129,6 +138,7 @@ body {
     font-weight: 700;
     font-size: 1.05rem;
     cursor: pointer;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
 }
 
 .error-msg {
@@ -152,7 +162,7 @@ body {
     display: none;
     position: relative;
     z-index: 5;
-    max-width: 650px;
+    max-width: 680px;
     margin: 0 auto;
     padding: 20px 20px 80px;
 }
@@ -162,77 +172,91 @@ body {
 
 /* HERO HEADER */
 .hero-header {
-    min-height: 80vh;
+    min-height: 82vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 40px 10px;
-    background: linear-gradient(to bottom, rgba(8, 8, 10, 0.4) 0%, rgba(8, 8, 10, 0.95) 100%),
+    padding: 40px 15px;
+    background: linear-gradient(to bottom, rgba(8, 8, 10, 0.45) 0%, rgba(8, 8, 10, 0.95) 100%),
                 url('../assets/images/hero-bg.jpg') center/cover no-repeat;
     border-radius: 24px;
     margin-bottom: 40px;
-    border: 1px solid rgba(212, 175, 55, 0.2);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.6);
 }
 
 .main-title {
     font-family: var(--font-heading);
-    font-size: 2.8rem;
+    font-size: 3rem;
     color: var(--gold-light);
     line-height: 1.4;
-    margin-bottom: 20px;
-    text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+    margin-bottom: 22px;
+    text-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
 }
 
 .sub-title {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     color: var(--text-muted);
     line-height: 1.9;
+    font-weight: 300;
 }
 
-/* HEARTFELT MESSAGE CARD */
+/* HEARTFELT LOVE LETTER */
 .message-card {
-    background: rgba(18, 18, 22, 0.75);
-    border: 1px solid rgba(212, 175, 55, 0.25);
-    border-radius: 20px;
-    padding: 35px 25px;
-    margin-bottom: 40px;
-    backdrop-filter: blur(10px);
+    background: rgba(18, 18, 22, 0.82);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 24px;
+    padding: 45px 32px;
+    margin-bottom: 45px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
 }
 
 .message-card p {
-    font-size: 1.15rem;
-    line-height: 2.1;
-    color: #EFEFEF;
-    margin-bottom: 18px;
+    font-size: 1.2rem;
+    line-height: 2.25;
+    color: #F0F0F2;
+    margin-bottom: 22px;
     text-align: justify;
+    font-weight: 300;
 }
 
 .message-signature {
-    margin-top: 30px;
+    margin-top: 35px;
     text-align: left;
+}
+
+.sig-sub {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+}
+
+.sig-name {
     font-family: var(--font-heading);
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     color: var(--gold-primary);
+    margin-top: 5px;
 }
 
 /* PHOTO SLIDER */
 .slider-container {
     position: relative;
     width: 100%;
-    height: 320px;
+    height: 350px;
     border-radius: 20px;
     overflow: hidden;
     margin-bottom: 50px;
     border: 1px solid rgba(212, 175, 55, 0.3);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
 }
 
 .slider-slide {
     position: absolute;
     inset: 0;
     opacity: 0;
-    transition: opacity 0.6s ease;
+    transition: opacity 0.7s ease;
 }
 .slider-slide.active {
     opacity: 1;
@@ -248,11 +272,11 @@ body {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.25);
     color: #FFF;
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
     cursor: pointer;
     display: flex;
@@ -270,23 +294,31 @@ body {
 }
 
 .surprise-btn {
-    padding: 16px 45px;
-    font-size: 1.2rem;
+    padding: 18px 50px;
+    font-size: 1.25rem;
     border-radius: 40px;
     background: linear-gradient(135deg, #FFF0A5 0%, #D4AF37 100%);
     color: #000;
     font-weight: 700;
     border: none;
     cursor: pointer;
-    box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
     font-family: var(--font-body);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.surprise-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 45px rgba(212, 175, 55, 0.8);
 }
 
 .surprise-modal {
     position: fixed;
     inset: 0;
     z-index: 15000;
-    background: rgba(5, 5, 7, 0.94);
+    background: rgba(5, 5, 7, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     display: none;
     align-items: center;
     justify-content: center;
@@ -298,37 +330,58 @@ body {
 }
 
 .surprise-box {
-    background: rgba(18, 18, 22, 0.95);
-    border: 1px solid var(--gold-primary);
-    border-radius: 24px;
+    background: linear-gradient(160deg, rgba(22, 20, 15, 0.95) 0%, rgba(10, 10, 12, 0.98) 100%);
+    border: 2px solid var(--gold-primary);
+    border-radius: 28px;
     padding: 50px 30px;
     text-align: center;
-    max-width: 400px;
+    max-width: 460px;
     width: 100%;
+    box-shadow: 0 0 50px rgba(212, 175, 55, 0.6);
+}
+
+/* BEATING HEART ANIMATION */
+.beating-heart {
+    font-size: 4rem;
+    color: var(--rose-accent);
+    margin-bottom: 20px;
+    animation: heartBeat 1.2s infinite ease-in-out;
+}
+
+@keyframes heartBeat {
+    0% { transform: scale(1); filter: drop-shadow(0 0 10px var(--rose-accent)); }
+    14% { transform: scale(1.25); filter: drop-shadow(0 0 25px var(--rose-accent)); }
+    28% { transform: scale(1); filter: drop-shadow(0 0 10px var(--rose-accent)); }
+    42% { transform: scale(1.25); filter: drop-shadow(0 0 25px var(--rose-accent)); }
+    70% { transform: scale(1); filter: drop-shadow(0 0 10px var(--rose-accent)); }
 }
 
 .surprise-text {
     font-family: var(--font-heading);
-    font-size: 2.2rem;
+    font-size: 1.7rem;
+    line-height: 2.1;
     color: var(--gold-light);
-    margin-bottom: 25px;
+    margin-bottom: 28px;
+    white-space: pre-line;
 }
 
 .close-btn {
     background: transparent;
     border: 1px solid rgba(212, 175, 55, 0.4);
     color: var(--text-muted);
-    padding: 8px 24px;
+    padding: 10px 28px;
     border-radius: 20px;
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
 }
 
 /* MOBILE ADAPTATION */
 @media (max-width: 600px) {
-    .main-title { font-size: 2.2rem; }
+    .main-title { font-size: 2.3rem; }
     .sub-title { font-size: 1.1rem; }
-    .message-card p { font-size: 1.05rem; line-height: 2; }
+    .message-card { padding: 32px 20px; }
+    .message-card p { font-size: 1.08rem; line-height: 2.05; }
     .slider-container { height: 260px; }
-    .surprise-text { font-size: 1.8rem; }
+    .surprise-text { font-size: 1.45rem; line-height: 2; }
+    .beating-heart { font-size: 3.2rem; }
 }

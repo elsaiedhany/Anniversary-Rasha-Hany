@@ -1,5 +1,5 @@
 /* ==========================================================================
-   AMBIENT PARTICLES & FLOATING HEARTS BURST
+   FLOATING HEARTS ENGINE & SCREEN HEARTS EXPLOSION
    ========================================================================== */
 
 (function () {
@@ -12,57 +12,38 @@
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
-    let particles = [];
-    let extraHearts = [];
+    let floatingHearts = [];
+    let explosionHearts = [];
 
     window.addEventListener('resize', () => {
         width = canvas.width = window.innerWidth;
         height = canvas.height = window.innerHeight;
     });
 
-    class Particle {
-        constructor() { this.reset(); }
-        reset() {
-            this.x = Math.random() * width;
-            this.y = Math.random() * height;
-            this.size = Math.random() * 2 + 0.5;
-            this.vx = (Math.random() - 0.5) * 0.3;
-            this.vy = (Math.random() - 0.5) * 0.3 - 0.1;
-            this.alpha = Math.random() * 0.4 + 0.2;
-        }
-        update() {
-            this.x += this.vx;
-            this.y += this.vy;
-            if (this.x < 0) this.x = width;
-            if (this.x > width) this.x = 0;
-            if (this.y < 0) this.y = height;
-            if (this.y > height) this.y = 0;
-        }
-        draw() {
-            ctx.save();
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(212, 175, 55, ${this.alpha})`;
-            ctx.fill();
-            ctx.restore();
-        }
-    }
-
+    // Continuous Floating Hearts Class
     class FloatingHeart {
-        constructor() {
-            this.x = Math.random() * width;
-            this.y = height + Math.random() * 50;
-            this.size = Math.random() * 18 + 12;
-            this.speed = Math.random() * 1.5 + 0.8;
-            this.alpha = 1;
-            this.wobble = Math.random() * Math.PI * 2;
+        constructor(initial = false) {
+            this.reset(initial);
         }
+
+        reset(initial = false) {
+            this.x = Math.random() * width;
+            this.y = initial ? Math.random() * height : height + Math.random() * 40;
+            this.size = Math.random() * 16 + 10;
+            this.speed = Math.random() * 0.9 + 0.35;
+            this.alpha = Math.random() * 0.45 + 0.2;
+            this.wobble = Math.random() * Math.PI * 2;
+            this.wobbleSpeed = Math.random() * 0.03 + 0.01;
+            this.color = Math.random() > 0.4 ? 'rgba(212, 175, 55,' : 'rgba(255, 94, 126,';
+        }
+
         update() {
             this.y -= this.speed;
-            this.wobble += 0.03;
-            this.x += Math.sin(this.wobble) * 0.8;
-            this.alpha -= 0.005;
+            this.wobble += this.wobbleSpeed;
+            this.x += Math.sin(this.wobble) * 0.6;
+            if (this.y < -30) this.reset(false);
         }
+
         draw() {
             ctx.save();
             ctx.translate(this.x, this.y);
@@ -71,31 +52,75 @@
             ctx.moveTo(0, 0);
             ctx.bezierCurveTo(-10, -10, -20, 5, 0, 18);
             ctx.bezierCurveTo(20, 5, 10, -10, 0, 0);
-            ctx.fillStyle = `rgba(255, 94, 94, ${Math.max(0, this.alpha)})`;
-            ctx.shadowBlur = 10;
-            ctx.shadowColor = '#FF5E5E';
+            ctx.fillStyle = `${this.color} ${this.alpha})`;
+            ctx.shadowBlur = 8;
+            ctx.shadowColor = 'rgba(212, 175, 55, 0.4)';
             ctx.fill();
             ctx.restore();
         }
     }
 
-    for (let i = 0; i < 40; i++) particles.push(new Particle());
+    // Explosion Heart for Surprise Action
+    class BurstHeart {
+        constructor() {
+            this.x = Math.random() * width;
+            this.y = height + 20;
+            this.size = Math.random() * 24 + 14;
+            this.speed = Math.random() * 2.5 + 1.2;
+            this.alpha = 1;
+            this.wobble = Math.random() * Math.PI * 2;
+            this.wobbleSpeed = Math.random() * 0.05 + 0.02;
+            this.color = Math.random() > 0.5 ? 'rgba(255, 94, 126,' : 'rgba(255, 215, 0,';
+        }
 
-    window.triggerFloatingHearts = function () {
-        for (let i = 0; i < 35; i++) {
-            extraHearts.push(new FloatingHeart());
+        update() {
+            this.y -= this.speed;
+            this.wobble += this.wobbleSpeed;
+            this.x += Math.sin(this.wobble) * 1.2;
+            this.alpha -= 0.006;
+        }
+
+        draw() {
+            ctx.save();
+            ctx.translate(this.x, this.y);
+            ctx.scale(this.size / 20, this.size / 20);
+            ctx.beginPath();
+            ctx.moveTo(0, 0);
+            ctx.bezierCurveTo(-10, -10, -20, 5, 0, 18);
+            ctx.bezierCurveTo(20, 5, 10, -10, 0, 0);
+            ctx.fillStyle = `${this.color} ${Math.max(0, this.alpha)})`;
+            ctx.shadowBlur = 12;
+            ctx.shadowColor = '#FF5E7E';
+            ctx.fill();
+            ctx.restore();
+        }
+    }
+
+    // Initialize 25 ambient hearts
+    for (let i = 0; i < 25; i++) {
+        floatingHearts.push(new FloatingHeart(true));
+    }
+
+    // Global trigger to fill the screen with hearts
+    window.triggerScreenHearts = function () {
+        for (let i = 0; i < 50; i++) {
+            explosionHearts.push(new BurstHeart());
         }
     };
 
     function animate() {
         ctx.clearRect(0, 0, width, height);
-        particles.forEach(p => { p.update(); p.draw(); });
 
-        extraHearts.forEach((h, idx) => {
+        floatingHearts.forEach(h => {
+            h.update();
+            h.draw();
+        });
+
+        explosionHearts.forEach((h, idx) => {
             h.update();
             h.draw();
             if (h.alpha <= 0 || h.y < -40) {
-                extraHearts.splice(idx, 1);
+                explosionHearts.splice(idx, 1);
             }
         });
 

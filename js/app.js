@@ -66,43 +66,48 @@ document.addEventListener('DOMContentLoaded', () => {
         if (nextBtn) nextBtn.addEventListener('click', nextSlide);
         if (prevBtn) prevBtn.addEventListener('click', prevSlide);
 
-        // Auto slide every 3.5 seconds
         if (!sliderInterval) {
             sliderInterval = setInterval(nextSlide, 3500);
         }
     }
 
-    // 3. Surprise Button (Confetti + Floating Hearts + Centered Message)
+    // 3. Surprise Button (Confetti + Floating Hearts + Centered Message Modal)
     const surpriseBtn = document.getElementById('surprise-btn');
     const surpriseModal = document.getElementById('surprise-modal');
     const closeModalBtn = document.getElementById('close-modal-btn');
 
     if (surpriseBtn) {
         surpriseBtn.addEventListener('click', () => {
-            // Launch Confetti
+            // Launch Confetti Explosion
             if (typeof confetti === 'function') {
                 confetti({
-                    particleCount: 120,
-                    spread: 80,
-                    origin: { y: 0.6 },
-                    colors: ['#D4AF37', '#FFD700', '#FFFFFF', '#FF5E5E']
+                    particleCount: 140,
+                    spread: 90,
+                    origin: { y: 0.65 },
+                    colors: ['#D4AF37', '#FFD700', '#FFFFFF', '#FF5E7E']
                 });
             }
 
-            // Launch Floating Hearts
-            if (typeof window.triggerFloatingHearts === 'function') {
-                window.triggerFloatingHearts();
+            // Launch Animated Floating Hearts Screen Fill
+            if (typeof window.triggerScreenHearts === 'function') {
+                window.triggerScreenHearts();
             }
 
-            // Show Centered Modal Message
+            // Show Centered Modal Message with Beating Heart
             setTimeout(() => {
-                if (surpriseModal) surpriseModal.classList.add('active');
+                if (surpriseModal) {
+                    surpriseModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
             }, 300);
         });
     }
 
     function closeModal() {
-        if (surpriseModal) surpriseModal.classList.remove('active');
+        if (surpriseModal) {
+            surpriseModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
     }
 
     if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
@@ -111,4 +116,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (e.target === surpriseModal) closeModal();
         });
     }
+
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeModal();
+    });
 });
